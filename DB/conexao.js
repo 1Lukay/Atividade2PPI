@@ -1,18 +1,17 @@
-const mysql = require("mysql2")
+import mysql from "mysql2" // Importa o módulo mysql2 para se conectar ao banco de dados MySQL
 
 const conexao = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "1231",
-    database: "cursos"
-})
+    database: "cursos"}  )
 
 conexao.connect(function(erro){
     if(erro){
         console.log(erro)
     }else{
         console.log("Banco conectado")
-    }
+      }
 })
-
-module.exports = conexao
+//criar conexao com o banco dedaos 
+export default conexao

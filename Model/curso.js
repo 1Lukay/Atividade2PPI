@@ -12,4 +12,4 @@ class Curso {
 
 }
 
-module.exports = Curso
+export default Curso

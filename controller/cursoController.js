@@ -1,4 +1,4 @@
-const cursoDB = require("../DB/CursoDB")
+import cursoDB from "../DB/CursoDB.js"  // Importa o módulo de acesso ao banco de dados para cursos
 
 function listar(req, res){
 
@@ -8,9 +8,9 @@ function listar(req, res){
             res.send("Erro ao buscar cursos")
         }else{
             res.json(resultado)
-        }
+            }   
 
-    })
+     } )
 
 }
 
@@ -26,7 +26,8 @@ function adicionar(req, res){
             res.send("Curso cadastrado")
         }
 
-    })
+    }       
+     )
 
 }
 
@@ -41,9 +42,9 @@ function atualizar(req, res){
             res.send("Erro ao atualizar")
         }else{
             res.send("Curso atualizado")
-        }
+              }
 
-    })
+    }   )  
 
 }
 
@@ -59,11 +60,11 @@ function deletar(req, res){
             res.send("Curso removido")
         }
 
-    })
+    }         )
 
 }
 
-module.exports = {
+export default {
     listar,
     adicionar,
     atualizar,

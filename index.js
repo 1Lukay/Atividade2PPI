@@ -1,5 +1,5 @@
-const express = require("express")
-const cursoController = require("./controller/cursoController")
+import express from "express"
+import cursoController from "./controller/cursoController.js"
 
 const app = express()
 

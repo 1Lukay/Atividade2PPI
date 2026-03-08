@@ -1,4 +1,4 @@
-const conexao = require("./conexao")
+import conexao from "./conexao.js"
 
 function listarCursos(callback){
 
@@ -7,12 +7,12 @@ function listarCursos(callback){
     conexao.query(sql, callback)
 
 }
-
-function adicionarCurso(curso, callback){
+//função para listar os cursos do banco de dados, recebe um callback para lidar com o resultado da consulta
+function adicionarCurso(curso, callback){   
 
     let sql = "INSERT INTO curso (titulo, descricao, carga_horaria, instrutor, nivel, preco) VALUES (?,?,?,?,?,?)"
 
-    conexao.query(sql,
+    conexao.query(sql,   //array de valores para os campos do curso
         [
             curso.titulo,
             curso.descricao,
@@ -24,8 +24,8 @@ function adicionarCurso(curso, callback){
         callback
     )
 }
-
-function atualizarCurso(id, curso, callback){
+//função para adicionar um novo curso ao banco de dados, recebe um objeto curso e um callback para lidar com o resultado da inserção
+function atualizarCurso(id, curso, callback){   
 
     let sql = "UPDATE curso SET titulo=?, descricao=?, carga_horaria=?, instrutor=?, nivel=?, preco=? WHERE id=?"
 
@@ -42,16 +42,17 @@ function atualizarCurso(id, curso, callback){
         callback
     )
 }
-
+//função para atualizar um curso existente no banco de dados, recebe o id do curso a ser atualizado, um objeto curso com os novos dados e um callback para lidar com o resultado da atualização
 function deletarCurso(id, callback){
 
     let sql = "DELETE FROM curso WHERE id=?"
-
+ 
+    
     conexao.query(sql,[id],callback)
 
 }
 
-module.exports = {
+export default {
     listarCursos,
     adicionarCurso,
     atualizarCurso,
