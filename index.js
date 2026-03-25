@@ -1,7 +1,11 @@
 import express from "express"
 import cursoController from "./controller/cursoController.js"
+import cors from "cors"
 
-const app = express()
+const app = express() 
+
+app.use(cors())
+app.use(express.json())
 
 app.use(express.json())
 
@@ -15,4 +19,12 @@ app.delete("/cursos/:id", cursoController.deletar)
 
 app.listen(3000,function(){
     console.log("Servidor rodando")
-})
+
+}
+
+
+)
+
+
+
+//Implementação do servidor HTTP para receber essas requisições, devolvendo corretamente as respostas; (GET, POST, PUT e DELETE)

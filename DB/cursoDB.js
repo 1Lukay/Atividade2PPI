@@ -13,7 +13,7 @@ function adicionarCurso(curso, callback){
     let sql = "INSERT INTO curso (titulo, descricao, carga_horaria, instrutor, nivel, preco) VALUES (?,?,?,?,?,?)"
 
     conexao.query(sql,   //array de valores para os campos do curso
-        [
+        [   
             curso.titulo,
             curso.descricao,
             curso.carga_horaria,
@@ -38,7 +38,7 @@ function atualizarCurso(id, curso, callback){
             curso.nivel,
             curso.preco,
             id
-        ],
+            ],
         callback
     )
 }

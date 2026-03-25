@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <button onclick="logout()">Sair</button>
+
+    <h1>Lista de Cursos</h1>
+    <h2>Cadastrar Curso</h2>
+    <form id="formCurso">
+      <input type="text" id="titulo" placeholder="Título" required>
+      <input type="text" id="descricao" placeholder="Descrição" required>
+      <input type="number" id="carga" placeholder="Carga horária" required>
+      <input type="text" id="instrutor" placeholder="Instrutor" required>
+      <input type="text" id="nivel" placeholder="Nível" required>
+      <input type="number" id="preco" placeholder="Preço" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <div class="cursos"></div>
+
+  </div>
+
+  <script>
+    // PROTEÇÃO DE LOGIN
+    if(localStorage.getItem("logado") !== "true"){
+        window.location.href = "login.html"
+    }
+
+    function logout(){
+        localStorage.removeItem("logado")
+        window.location.href = "login.html"
+    }
+  </script>
+
+  <script src="script.js"></script>
+
+
+  
